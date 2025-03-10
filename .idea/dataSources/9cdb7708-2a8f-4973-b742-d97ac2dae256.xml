@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.53">
+    <root id="1">
+      <ServerVersion>8.0.3</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin">
+      <LastIntrospectionLocalTimestamp>2025-03-07.12:57:18</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="3" parent="1" name="config">
+      <LastIntrospectionLocalTimestamp>2025-03-07.12:57:18</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="4" parent="1" name="enum">
+      <LastIntrospectionLocalTimestamp>2025-03-07.12:57:18</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="5" parent="1" name="local">
+      <LastIntrospectionLocalTimestamp>2025-03-07.12:57:18</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="6" parent="1" name="task_db">
+      <LastIntrospectionLocalTimestamp>2025-03-10.13:56:01</LastIntrospectionLocalTimestamp>
+    </schema>
+    <table id="7" parent="6" name="tasks"/>
+    <column id="8" parent="7" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="9" parent="7" name="created_at">
+      <Position>2</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="10" parent="7" name="date_updated">
+      <Position>3</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="11" parent="7" name="description">
+      <Position>4</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="12" parent="7" name="id">
+      <Position>5</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="13" parent="7" name="status">
+      <Position>6</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="14" parent="7" name="title">
+      <Position>7</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="15" parent="7" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+  </database-model>
+</dataSource>
