@@ -7,9 +7,6 @@ class TaskSerializer:
     @staticmethod
     def serialize(task):
         """Convert Task object to a dictionary for MongoDB storage."""
-        # Debugging to check what is being stored
-        print(f"DEBUG - task.status before serialization: {task.status}, type: {type(task.status)}")
-
         # Extract correct status value
         if isinstance(task.status, tuple):
             task.status = task.status[0]  # Unpack tuple

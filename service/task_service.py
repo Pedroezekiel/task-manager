@@ -16,4 +16,4 @@ class TaskService:
     @staticmethod
     def get_task(task_id):
         task = TaskRepository.find_by_id(task_id)
-        return jsonify({"task":TaskSerializer.serialize(task)}), 200
+        return jsonify({"task":task}), 200
