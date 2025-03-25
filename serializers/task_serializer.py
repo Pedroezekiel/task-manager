@@ -12,7 +12,7 @@ class TaskSerializer:
             "description": task.description,
             "status": task.status.value if isinstance(task.status, TaskStatusEnum) else str(task.status),
             "created_at": task.created_at,
-            "date_completed": task.date_completed,
+            "date_created": task.date_created,
             "date_updated": task.date_updated,
         }
 
@@ -24,7 +24,7 @@ class TaskSerializer:
             "description": data["description"],
             "status": data["status"],  # Assuming it's already a string in MongoDB
             "created_at": TaskSerializer.convert_datetime(data.get("created_at")),
-            "date_completed": TaskSerializer.convert_datetime(data.get("date_completed")),
+            "data_created": TaskSerializer.convert_datetime(data.get("data_created")),
             "date_updated": TaskSerializer.convert_datetime(data.get("date_updated")),
         }
 

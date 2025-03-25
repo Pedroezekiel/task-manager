@@ -1,6 +1,3 @@
-from bson import ObjectId
-from bson.errors import InvalidId
-
 from models.task import Task
 from extensions.database import mongo
 from serializers.task_serializer import TaskSerializer

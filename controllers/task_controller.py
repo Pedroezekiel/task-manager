@@ -25,5 +25,9 @@ class TaskController:
     def delete_task(task_id):
         return TaskService.delete_task(task_id)
 
+    @staticmethod
+    def complete_task(task_id, status):
+        return TaskService.update_task_status(task_id, status)
+
 
 

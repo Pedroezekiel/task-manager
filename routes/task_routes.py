@@ -13,6 +13,7 @@ class TaskRoutes(Blueprint):
         self.add_url_rule("/<task_id>", view_func=TaskController.update_task, methods=["PUT"])
         self.add_url_rule("/all", view_func=TaskController.get_all_tasks, methods=["GET"])
         self.add_url_rule("/<task_id>", view_func=TaskController.delete_task, methods=["DELETE"])
+        self.add_url_rule("/<task_id>/<status>", view_func=TaskController.complete_task, methods=["PUT"])
 
 
 task_routes = TaskRoutes()

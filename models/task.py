@@ -10,7 +10,6 @@ class Task:
         self.description = description
         self.status = status
         self.created_at = datetime.datetime.now()
-        self.date_completed = None
         self.date_updated = None
 
     def get_id(self):
