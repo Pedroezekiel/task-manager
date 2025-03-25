@@ -21,5 +21,9 @@ class TaskController:
     def get_all_tasks():
         return TaskService.get_all_tasks()
 
+    @staticmethod
+    def delete_task(task_id):
+        return TaskService.delete_task(task_id)
+
 
 
