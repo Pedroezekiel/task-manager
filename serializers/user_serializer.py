@@ -9,6 +9,7 @@ class UserSerializer:
             "_id":user.get_id(),
             "name":user.name,
             "email":user.email,
+            "password":user.password
         }
 
     @staticmethod

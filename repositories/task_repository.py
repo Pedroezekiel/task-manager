@@ -1,5 +1,5 @@
 from models.task import Task
-from extensions.database import mongo
+from extensions.database import mongo_tasks as mongo
 from serializers.task_serializer import TaskSerializer
 
 
