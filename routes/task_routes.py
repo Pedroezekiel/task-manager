@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint
 from controllers.task_controller import TaskController
 
 class TaskRoutes(Blueprint):
@@ -10,5 +10,9 @@ class TaskRoutes(Blueprint):
         """Registers all task-related routes."""
         self.add_url_rule("/", view_func=TaskController.create_task, methods=["POST"])
         self.add_url_rule("/<task_id>", view_func=TaskController.get_task, methods=["GET"])
+        self.add_url_rule("/<task_id>", view_func=TaskController.update_task, methods=["PUT"])
+        self.add_url_rule("/all", view_func=TaskController.get_all_tasks, methods=["GET"])
+        self.add_url_rule("/<task_id>", view_func=TaskController.delete_task, methods=["DELETE"])
+
 
 task_routes = TaskRoutes()
