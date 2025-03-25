@@ -11,6 +11,8 @@ class UserService:
     @staticmethod
     def register(data):
         user = User(name=data["name"], email=data["email"], password=data["password"])
+        if UserRepository.find_by_email(user.email) is not None:
+            return {"message": "Email already registered"}, 400
         saved_user = UserRepository.register(user)
         return jsonify({"message":"User created","user": saved_user}), 201
 
