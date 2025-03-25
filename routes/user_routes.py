@@ -9,6 +9,7 @@ class UserRoutes(Blueprint):
 
     def register_routes(self):
         self.add_url_rule("/", view_func=UserController.register_user, methods=["POST"])
-        self.add_url_rule("/", view_func=UserController.user_login, methods=["GET"])
+        self.add_url_rule("/login/", view_func=UserController.user_login, methods=["GET"])
+        self.add_url_rule("/logout/", view_func=UserController.user_logout, methods=["POST"])
 
 user_routes = UserRoutes()

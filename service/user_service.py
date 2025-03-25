@@ -1,8 +1,7 @@
-import bcrypt
 from flask import jsonify
 from flask_jwt_extended import create_access_token
-from sqlalchemy.testing.suite.test_reflection import users
 
+from extensions.auth import blacklisted_tokens
 from models.user import User
 from repositories.user_repository import UserRepository
 
@@ -22,8 +21,7 @@ class UserService:
     def login(data):
         user = UserRepository.find_by_email(data["email"])
 
-        print("User found:", user)  # Debugging: See if user is retrieved
-
+        print("User found:", user)
         if not user:
             return jsonify({"message": "Invalid credentials (user not found)"}), 401
 
@@ -33,4 +31,10 @@ class UserService:
         access_token = create_access_token(identity=str(user.get_id()))
 
         return jsonify({"access_token": access_token}), 200
+
+    @staticmethod
+    def logout(jti):
+        print("============++++++++++++++++++++++")
+        blacklisted_tokens.add(jti)
+        return jsonify({"message": "Successfully logged out"}), 200
 
