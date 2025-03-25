@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import jsonify
 
 from models.task import Task
@@ -10,10 +12,34 @@ class TaskService:
     @staticmethod
     def create_task(data):
         task = Task(title=data["title"],description=data["description"])
-        TaskRepository.save_or_update(task)
-        return jsonify({"message":"Task created","task":TaskSerializer.serialize(task)}), 201
+        saved_task = TaskRepository.save(task)
+        return jsonify({"message":"Task created","task": saved_task}), 201
 
     @staticmethod
     def get_task(task_id):
         task = TaskRepository.find_by_id(task_id)
+        if task is None:
+            return jsonify({"message":"Task not found"}), 404
         return jsonify({"task":task}), 200
+
+    @staticmethod
+    def update_task(task_id, data):
+        task = TaskRepository.find_by_id(task_id)
+        if task is None:
+            return jsonify({"message":"Task not found"}), 404
+        print(task["title"])
+        task["title"] = data["title"]
+        task["description"] = data["description"]
+        task["date_updated"] = datetime.now()
+        TaskRepository.update(task)
+        return jsonify({"message":"Task updated","task":task}), 200
+
+    @staticmethod
+    def get_all_tasks():
+        tasks = TaskRepository.find_all()
+        return jsonify({"tasks":tasks}), 200
+
+    @staticmethod
+    def delete_task(task_id):
+        TaskRepository.delete_by_id(task_id)
+        return jsonify({"message": "Task deleted"}), 200
