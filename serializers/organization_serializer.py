@@ -6,12 +6,10 @@ class OrganizationSerializer:
 
     @staticmethod
     def serialize(organization):
-        created_by = UserRepository.find_user_name_by_id(organization.created_by)
-        print(created_by)
         return {
             "_id": organization.get_id(),
             "name": organization.name,
-            "created_by": created_by,
+            "created_by": organization.created_by,
             "description": organization.description,
             "date_created": organization.date_created,
             "date_updated": organization.date_updated,

@@ -12,5 +12,8 @@ class OrganizationRoutes(Blueprint):
     def register_routes(self):
         print("===============================+++++++++++++++++++++")
         self.add_url_rule("/", view_func=OrganizationController.create_organization, methods=["POST"])
+        self.add_url_rule("/<org_id>", view_func=OrganizationController.edit_organization, methods=["PUT"])
+        self.add_url_rule("/<org_id>", view_func=OrganizationController.view_organization, methods=["GET"])
+        self.add_url_rule("/<site_name>/<org_id>", view_func=OrganizationController.delete_organization, methods=["DELETE"])
 
 organization_routes = OrganizationRoutes()

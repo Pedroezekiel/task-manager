@@ -17,3 +17,13 @@ class OrganizationController:
         user_id = get_jwt_identity()
         data = request.get_json()
         return OrganizationService.edit_organization(org_id, data, user_id)
+
+    @staticmethod
+    @jwt_required()
+    def view_organization(org_id):
+        return OrganizationService.view_organization(org_id)
+
+    @staticmethod
+    @jwt_required()
+    def delete_organization(org_id, site_name):
+        return OrganizationService.delete_organization(org_id, site_name)

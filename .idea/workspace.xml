@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b98b401-bf9b-4b24-9a76-5f1cce9c7ba1" name="Changes" comment="added auth">
-      <change afterPath="$PROJECT_DIR$/enums/member_role_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/organization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="9b98b401-bf9b-4b24-9a76-5f1cce9c7ba1" name="Changes" comment="added org">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enums/task_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/enums/task_status.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/jwt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extensions/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/extensions/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/organization_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/organization_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/organization_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/organization_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repositories/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/user_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serializers/task_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/serializers/task_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/task_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/task_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/organization_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/organization_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serializers/organization_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/serializers/organization_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/organization_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/organization_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +145,7 @@
       <workItem from="1742829693518" duration="1090000" />
       <workItem from="1742831119571" duration="803000" />
       <workItem from="1742891174772" duration="24662000" />
-      <workItem from="1742977357400" duration="13797000" />
+      <workItem from="1742977357400" duration="18528000" />
     </task>
     <task id="LOCAL-00001" summary="creating a flask project using oop">
       <option name="closed" value="true" />
@@ -306,7 +299,31 @@
       <option name="project" value="LOCAL" />
       <updated>1742979811687</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added org">
+      <option name="closed" value="true" />
+      <created>1742993640135</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1742993640135</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added org">
+      <option name="closed" value="true" />
+      <created>1742993705323</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1742993705323</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added org">
+      <option name="closed" value="true" />
+      <created>1742993753945</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1742993753945</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,10 +339,11 @@
     <MESSAGE value="update service" />
     <MESSAGE value="added user" />
     <MESSAGE value="added auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auth" />
+    <MESSAGE value="added org" />
+    <option name="LAST_COMMIT_MESSAGE" value="added org" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1742993593741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1742998146276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_task_manager_api$config.coverage" NAME="config Coverage Results" MODIFIED="1741598271048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

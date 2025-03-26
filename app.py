@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_jwt_extended import JWTManager
 
 from config import Config
 from extensions.database import init_db

@@ -1,4 +1,4 @@
-from extensions.database import mongo_tasks as mongo
+from extensions.database import mongo_users as mongo
 from models.user import User
 from serializers.user_serializer import UserSerializer
 
@@ -16,7 +16,7 @@ class UserRepository:
     def find_by_email(email):
         user_data=mongo.db.users.find_one({"email": email})
         print(type(user_data))
-        print(user_data["_id"])
+        print(user_data)
         if user_data is None:
             return None
         else:
