@@ -12,8 +12,9 @@ class TaskSerializer:
             "description": task.description,
             "status": task.status.value if isinstance(task.status, TaskStatusEnum) else str(task.status),
             "created_at": task.created_at,
-            "date_created": task.date_created,
             "date_updated": task.date_updated,
+            "user_id": task.user_id,
+            "updated_by": task.updated_by
         }
 
     @staticmethod
@@ -26,6 +27,7 @@ class TaskSerializer:
             "created_at": TaskSerializer.convert_datetime(data.get("created_at")),
             "data_created": TaskSerializer.convert_datetime(data.get("data_created")),
             "date_updated": TaskSerializer.convert_datetime(data.get("date_updated")),
+            "updated_by": data["updated_by"]
         }
 
     @staticmethod
