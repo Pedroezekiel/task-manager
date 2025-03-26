@@ -16,15 +16,15 @@ class TaskRepository:
         mongo.db.tasks.update_one({"_id": data["_id"]}, {"$set": data})
 
     @staticmethod
-    def find_by_id(task_id):
-        task = mongo.db.tasks.find_one({"_id": task_id})
+    def find_by_id(task_id, user_id):
+        task = mongo.db.tasks.find_one({"_id": task_id, "user_id": user_id})
         if task is not None:
             return TaskSerializer.deserialize(task)
         else: return None
 
     @staticmethod
-    def find_all():
-        tasks = mongo.db.tasks.find()
+    def find_all(user_id):
+        tasks = mongo.db.tasks.find({"user_id":user_id})
         return [TaskSerializer.deserialize(task) for task in tasks]
 
     @staticmethod
