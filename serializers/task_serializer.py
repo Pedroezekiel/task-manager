@@ -1,4 +1,4 @@
-from datetime import datetime
+from utils.date_time_utils import DateTimeUtils
 
 from enums.task_status import TaskStatusEnum
 
@@ -24,14 +24,8 @@ class TaskSerializer:
             "title": data["title"],
             "description": data["description"],
             "status": data["status"],  # Assuming it's already a string in MongoDB
-            "created_at": TaskSerializer.convert_datetime(data.get("created_at")),
-            "data_created": TaskSerializer.convert_datetime(data.get("data_created")),
-            "date_updated": TaskSerializer.convert_datetime(data.get("date_updated")),
+            "created_at": DateTimeUtils.convert_datetime(data.get("created_at")),
+            "data_created": DateTimeUtils.convert_datetime(data.get("data_created")),
+            "date_updated": DateTimeUtils.convert_datetime(data.get("date_updated")),
             "updated_by": data["updated_by"]
         }
-
-    @staticmethod
-    def convert_datetime(value):
-        if isinstance(value, str):
-            return datetime.fromisoformat(value)
-        return value

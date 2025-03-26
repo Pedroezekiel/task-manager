@@ -4,7 +4,7 @@ from enums.task_status import TaskStatusEnum
 
 class Task:
 
-    def __init__(self, title, description,user_id, status=TaskStatusEnum.TO_DO):
+    def __init__(self, title, description,user_id, site_name=None, status=TaskStatusEnum.TO_DO):
         self._id = str(uuid.uuid4())
         self.title = title
         self.description = description
@@ -13,6 +13,7 @@ class Task:
         self.date_updated = None
         self.updated_by = None
         self.user_id = user_id
+        self.site_name = site_name
 
     def get_id(self):
         return self._id

@@ -25,3 +25,6 @@ class User:
 
     def get_id(self):
         return self._id
+
+    def set_id(self, id):
+        self._id = id

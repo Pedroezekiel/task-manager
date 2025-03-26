@@ -16,60 +16,112 @@
     <schema id="5" parent="1" name="local">
       <LastIntrospectionLocalTimestamp>2025-03-07.12:57:18</LastIntrospectionLocalTimestamp>
     </schema>
-    <schema id="6" parent="1" name="task_db">
-      <LastIntrospectionLocalTimestamp>2025-03-25.13:05:22</LastIntrospectionLocalTimestamp>
+    <schema id="6" parent="1" name="org_db">
+      <LastIntrospectionLocalTimestamp>2025-03-26.12:33:04</LastIntrospectionLocalTimestamp>
     </schema>
-    <table id="7" parent="6" name="tasks"/>
-    <table id="8" parent="6" name="users"/>
-    <column id="9" parent="7" name="_id">
+    <schema id="7" parent="1" name="task_db">
+      <LastIntrospectionLocalTimestamp>2025-03-26.12:32:51</LastIntrospectionLocalTimestamp>
+    </schema>
+    <table id="8" parent="6" name="organizations"/>
+    <table id="9" parent="7" name="tasks"/>
+    <table id="10" parent="7" name="users"/>
+    <column id="11" parent="8" name="_id">
       <Position>1</Position>
-      <StoredType>String|12s</StoredType>
+      <StoredType>ObjectId|12s</StoredType>
     </column>
-    <column id="10" parent="7" name="created_at">
-      <Position>1</Position>
-      <StoredType>ISODate|91s</StoredType>
-    </column>
-    <column id="11" parent="7" name="status">
-      <Position>1</Position>
-      <StoredType>String|12s</StoredType>
-    </column>
-    <column id="12" parent="7" name="title">
+    <column id="12" parent="8" name="created_by">
       <Position>2</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="13" parent="7" name="data_created">
-      <Position>2</Position>
-      <StoredType>String|12s</StoredType>
-    </column>
-    <column id="14" parent="7" name="date_completed">
+    <column id="13" parent="8" name="date_created">
       <Position>3</Position>
       <StoredType>ISODate|91s</StoredType>
     </column>
-    <column id="15" parent="7" name="date_updated">
+    <column id="14" parent="8" name="date_updated">
       <Position>4</Position>
-      <StoredType>ISODate|91s</StoredType>
+      <StoredType>String|12s</StoredType>
     </column>
-    <column id="16" parent="7" name="description">
+    <column id="15" parent="8" name="description">
       <Position>5</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <index id="17" parent="7" name="_id_">
+    <column id="16" parent="8" name="id">
+      <Position>6</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="17" parent="8" name="name">
+      <Position>7</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="18" parent="8" name="site_name">
+      <Position>8</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="19" parent="8" name="_id_">
       <ColNames>_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <column id="18" parent="8" name="_id">
+    <column id="20" parent="9" name="_id">
       <Position>1</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="19" parent="8" name="email">
+    <column id="21" parent="9" name="created_at">
+      <Position>1</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="22" parent="9" name="status">
       <Position>1</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <column id="20" parent="8" name="name">
+    <column id="23" parent="9" name="title">
       <Position>2</Position>
       <StoredType>String|12s</StoredType>
     </column>
-    <index id="21" parent="8" name="_id_">
+    <column id="24" parent="9" name="data_created">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="25" parent="9" name="date_completed">
+      <Position>3</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="26" parent="9" name="updated_by">
+      <Position>3</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="27" parent="9" name="date_updated">
+      <Position>4</Position>
+      <StoredType>ISODate|91s</StoredType>
+    </column>
+    <column id="28" parent="9" name="user_id">
+      <Position>4</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="29" parent="9" name="description">
+      <Position>5</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="30" parent="9" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="31" parent="10" name="_id">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="32" parent="10" name="email">
+      <Position>1</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="33" parent="10" name="name">
+      <Position>2</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="34" parent="10" name="password">
+      <Position>3</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="35" parent="10" name="_id_">
       <ColNames>_id</ColNames>
       <Unique>1</Unique>
     </index>

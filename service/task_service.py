@@ -24,12 +24,16 @@ class TaskService:
 
     @staticmethod
     def update_task(task_id, data, user_id):
+        if "title" not in data and "description" not in data:
+            return jsonify({"message": "At least one field (title or description) must be provided"}), 400
         task = TaskRepository.find_by_id(task_id, user_id)
         if task is None:
             return jsonify({"message":"Task not found"}), 404
         print(task["title"])
-        task["title"] = data["title"]
-        task["description"] = data["description"]
+        if "title" in data:
+            task["title"] = data["title"]
+        if "description" in data:
+            task["description"] = data["description"]
         task["date_updated"] = datetime.now()
         task["updated_by"] = user_id
         TaskRepository.update(task)

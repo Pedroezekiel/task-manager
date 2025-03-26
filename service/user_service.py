@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_jwt_extended import create_access_token
 
-from extensions.auth import blacklisted_tokens
+from extensions.jwt import blacklisted_tokens
 from models.user import User
 from repositories.user_repository import UserRepository
 
@@ -13,7 +13,7 @@ class UserService:
         user = User(name=data["name"], email=data["email"], password=data["password"])
         if not UserRepository.find_by_email(user.email):
             print("--------------------------===================")
-            saved_user = UserRepository.register(user)
+            saved_user = UserRepository.save(user)
             return jsonify({"message": "User created", "user": saved_user}), 201
         return {"message": "Email already registered"}, 400
 
@@ -27,8 +27,12 @@ class UserService:
 
         if not user.verify_password(data["password"]):
             return jsonify({"message": "Invalid credentials (password mismatch)"}), 401
+        print(user.email)
+        print(user.name)
+        print("User logged in", user.get_id())
 
-        access_token = create_access_token(identity=str(user.get_id()))
+        access_token = create_access_token(identity=user.get_id())
+        print(access_token)
 
         return jsonify({"access_token": access_token}), 200
 
@@ -36,5 +40,6 @@ class UserService:
     def logout(jti):
         print("============++++++++++++++++++++++")
         blacklisted_tokens.add(jti)
+        print(f"Blacklisted Tokens: {blacklisted_tokens}")  # Debugging
         return jsonify({"message": "Successfully logged out"}), 200
 
