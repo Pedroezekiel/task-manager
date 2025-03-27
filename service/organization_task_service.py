@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import jsonify
 
 from enums.task_status import TaskStatusEnum
@@ -64,3 +66,12 @@ class OrganizationTaskService:
             TaskStatusEnum[status_str]
         except KeyError:
             return jsonify({"message": "Invalid status value"}), 400
+        if OrganizationRepository.find_by_site_name(site_name) is None:
+            return jsonify({"message": "Organization not found"}), 404
+        task = TaskRepository.find_by_id_and_site_name(task_id, site_name)
+        if task is None:
+            return jsonify({"message": "Task not found"}), 404
+        task["status"] = status_str
+        task["date_updated"] = datetime.now()
+        TaskRepository.update(task)
+        return jsonify({"message": "Task updated", "task": task}), 200
