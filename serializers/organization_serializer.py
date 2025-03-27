@@ -19,6 +19,7 @@ class OrganizationSerializer:
 
     @staticmethod
     def deserialize(data):
+        print(data["name"])
         return {
             "id": data["_id"],
             "name": data["name"],

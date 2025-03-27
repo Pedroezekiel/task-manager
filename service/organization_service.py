@@ -47,5 +47,5 @@ class OrganizationService:
         organization = OrganizationRepository.find_by_id_and_site_name(org_id, site_name)
         if organization is None:
             return jsonify({"message": "Organization not found"}), 404
-        OrganizationRepository.delete(organization)
+        OrganizationRepository.delete(org_id)
         return jsonify({"message": "Organization deleted"}), 200

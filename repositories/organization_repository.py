@@ -8,7 +8,9 @@ class OrganizationRepository:
     def save(organization):
         serialized_organization = OrganizationSerializer.serialize(organization)
         organization = mongo.db.organizations.insert_one(serialized_organization)
-        return OrganizationSerializer.deserialize(organization)
+        inserted_organization = mongo.db.organizations.find_one({"_id": organization.inserted_id})
+
+        return OrganizationSerializer.deserialize(inserted_organization)
 
     @staticmethod
     def find_by_site_name(site_name):

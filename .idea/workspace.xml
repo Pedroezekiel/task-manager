@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b98b401-bf9b-4b24-9a76-5f1cce9c7ba1" name="Changes" comment="added org">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/organization_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/organization_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repositories/organization_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/organization_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/user_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/organization_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/organization_routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serializers/organization_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/serializers/organization_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/organization_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/organization_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +139,8 @@
       <workItem from="1742829693518" duration="1090000" />
       <workItem from="1742831119571" duration="803000" />
       <workItem from="1742891174772" duration="24662000" />
-      <workItem from="1742977357400" duration="18528000" />
+      <workItem from="1742977357400" duration="21318000" />
+      <workItem from="1743063584751" duration="3997000" />
     </task>
     <task id="LOCAL-00001" summary="creating a flask project using oop">
       <option name="closed" value="true" />
@@ -323,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742993753945</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added org">
+      <option name="closed" value="true" />
+      <created>1742998605150</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1742998605150</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +346,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="added org" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1742998146276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1743067677905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_task_manager_api$config.coverage" NAME="config Coverage Results" MODIFIED="1741598271048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
