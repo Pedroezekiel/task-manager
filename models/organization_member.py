@@ -13,3 +13,6 @@ class OrganizationMember:
         self.role = role
         self.date_joined = datetime.now()
         self.site_name = site_name
+
+    def get_id(self):
+        return self._id

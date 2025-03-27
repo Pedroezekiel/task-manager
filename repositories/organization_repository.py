@@ -42,3 +42,10 @@ class OrganizationRepository:
     @staticmethod
     def delete(organization_id):
         mongo.db.organizations.delete_one({"_id": organization_id})
+
+    @staticmethod
+    def find_org_name_by_id(org_id):
+        organizations = mongo.db.organizations.find_one({"_id": org_id})
+        if organizations is None:
+            return None
+        else: return organizations["name"]

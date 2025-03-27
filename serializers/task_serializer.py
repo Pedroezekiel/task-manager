@@ -14,7 +14,8 @@ class TaskSerializer:
             "created_at": task.created_at,
             "date_updated": task.date_updated,
             "user_id": task.user_id,
-            "updated_by": task.updated_by
+            "updated_by": task.updated_by,
+            "site_name": task.site_name
         }
 
     @staticmethod
@@ -24,8 +25,9 @@ class TaskSerializer:
             "title": data["title"],
             "description": data["description"],
             "status": data["status"],  # Assuming it's already a string in MongoDB
-            "created_at": DateTimeUtils.convert_datetime(data.get("created_at")),
-            "data_created": DateTimeUtils.convert_datetime(data.get("data_created")),
+            "data_created": DateTimeUtils.convert_datetime(data.get("created_at")),
             "date_updated": DateTimeUtils.convert_datetime(data.get("date_updated")),
-            "updated_by": data["updated_by"]
+            "updated_by": data["updated_by"],
+            "site_name": data["site_name"],
+            "created_by": data["user_id"],
         }
