@@ -31,9 +31,10 @@ class OrganizationController:
 
     @staticmethod
     @jwt_required()
-    def organization_create_task(org_id):
+    def organization_create_task():
         data = request.get_json()
-        return OrganizationTaskService.org_create_task(org_id, data)
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_create_task(data, user_id)
 
     @staticmethod
     @jwt_required()
