@@ -41,3 +41,25 @@ class OrganizationController:
         user_id = get_jwt_identity()
         data = request.get_json()
         return OrganizationTaskService.org_edit_task(data, site_name, task_id, user_id)
+
+    @staticmethod
+    @jwt_required()
+    def organization_view_task(site_name, task_id):
+        return OrganizationTaskService.org_view_tasks(site_name,task_id)
+
+    @staticmethod
+    @jwt_required()
+    def organization_view_all_tasks(site_name):
+        return OrganizationTaskService.org_view_all_tasks(site_name)
+
+    @staticmethod
+    @jwt_required()
+    def organization_edit_task(task_id, site_name):
+        data = request.get_json()
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_edit_task(data,site_name,task_id,user_id)
+
+    @staticmethod
+    @jwt_required()
+    def organization_delete_task(site_name, task_id):
+        return OrganizationTaskService.org_delete_task(site_name,task_id)
