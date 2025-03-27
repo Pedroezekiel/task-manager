@@ -35,3 +35,8 @@ class UserRepository:
         user=mongo.db.users.find_one({"_id": id})
         print(user)
         return user["name"]
+
+    @staticmethod
+    def find_by_id(id):
+        user=mongo.db.users.find_one({"_id": id})
+        return user
