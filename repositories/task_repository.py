@@ -43,6 +43,7 @@ class TaskRepository:
     @staticmethod
     def find_all_by_site_name(site_name):
         tasks = mongo.db.tasks.find({"site_name": site_name})
+        print(tasks,"=======================================")
         if tasks is None:
             return None
         return [TaskSerializer.deserialize(task) for task in tasks]
