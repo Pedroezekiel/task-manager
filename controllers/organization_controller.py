@@ -27,7 +27,8 @@ class OrganizationController:
     @staticmethod
     @jwt_required()
     def delete_organization(org_id, site_name):
-        return OrganizationService.delete_organization(org_id, site_name)
+        user_id = get_jwt_identity()
+        return OrganizationService.delete_organization(org_id, user_id, site_name)
 
     @staticmethod
     @jwt_required()
@@ -46,12 +47,14 @@ class OrganizationController:
     @staticmethod
     @jwt_required()
     def organization_view_task(task_id,site_name):
-        return OrganizationTaskService.org_view_tasks(site_name,task_id)
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_view_tasks(site_name,user_id, task_id)
 
     @staticmethod
     @jwt_required()
     def organization_view_all_tasks(site_name):
-        return OrganizationTaskService.org_view_all_tasks(site_name)
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_view_all_tasks(site_name, user_id)
 
     @staticmethod
     @jwt_required()
@@ -63,4 +66,5 @@ class OrganizationController:
     @staticmethod
     @jwt_required()
     def organization_delete_task(site_name, task_id):
-        return OrganizationTaskService.org_delete_task(site_name,task_id)
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_delete_task(site_name, user_id, task_id)

@@ -17,3 +17,9 @@ class OrganizationMemberController:
     def member_join_organization(site_name):
         user_id = get_jwt_identity()
         return OrganizationMemberService.member_join_organization(user_id, site_name)
+
+    @staticmethod
+    @jwt_required()
+    def view_all_organization_members(site_name):
+        user_id = get_jwt_identity()
+        return OrganizationMemberService.view_organization_members(user_id, site_name)

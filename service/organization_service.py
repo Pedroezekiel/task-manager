@@ -2,7 +2,10 @@ from datetime import datetime
 
 from flask import jsonify
 
+from enums.member_role_status import MemberRoleEnum
 from models.organization import Organization
+from models.organization_member import OrganizationMember
+from repositories.organization_member_repository import OrganizationMemberRepository
 from repositories.organization_repository import OrganizationRepository
 from repositories.task_repository import TaskRepository
 
@@ -15,6 +18,9 @@ class OrganizationService:
                                     created_by=user_id, site_name=data["site_name"])
         if OrganizationRepository.find_by_site_name(organization.site_name) is None:
             saved_organization = OrganizationRepository.save(organization)
+            org_member = OrganizationMember(user_id=user_id, org_id=saved_organization.org_id,
+                                            site_name=saved_organization.site_name, role=MemberRoleEnum.ADMIN)
+            OrganizationMemberRepository.save(org_member)
             return jsonify({"message": "Organization created", "organization": saved_organization}), 201
         else: return jsonify({"message": "Organization already exists"}), 400
 
@@ -24,6 +30,8 @@ class OrganizationService:
         print(data["site_name"])
         if "name" not in data and "description" not in data:
             return jsonify({"message": "Name or description missing"}), 400
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(data["site_name"], user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         organization = OrganizationRepository.find_by_id_and_site_name(organization_id, data["site_name"])
         if organization is None:
             return jsonify({"message": "Organization not found"}), 404
@@ -44,7 +52,9 @@ class OrganizationService:
         return jsonify({"message": "Organization found", "organization": organization}), 200
 
     @staticmethod
-    def delete_organization(org_id, site_name):
+    def delete_organization(org_id, user_id, site_name):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         organization = OrganizationRepository.find_by_id_and_site_name(org_id, site_name)
         if organization is None:
             return jsonify({"message": "Organization not found"}), 404

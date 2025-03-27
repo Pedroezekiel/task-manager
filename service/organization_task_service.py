@@ -4,6 +4,7 @@ from flask import jsonify
 
 from enums.task_status import TaskStatusEnum
 from models.task import Task
+from repositories.organization_member_repository import OrganizationMemberRepository
 from repositories.organization_repository import OrganizationRepository
 from repositories.task_repository import TaskRepository
 from service.task_service import TaskService
@@ -13,6 +14,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_create_task(data, user_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(data["site_name"], user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(data["site_name"]) is None:
             return jsonify({"message": "Organization not found"}), 404
         task = Task(title=data["title"],description=data["description"], user_id=user_id, site_name=data["site_name"])
@@ -20,7 +23,9 @@ class OrganizationTaskService:
         return jsonify({"message":"Task created","task": saved_task}), 201
 
     @staticmethod
-    def org_view_tasks(site_name, task_id):
+    def org_view_tasks(site_name, user_id, task_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(site_name) is None:
             return jsonify({"message": "Organization not found"}), 404
         task = TaskRepository.find_by_id_and_site_name(task_id, site_name)
@@ -29,7 +34,9 @@ class OrganizationTaskService:
         return jsonify({"task": task}), 200
 
     @staticmethod
-    def org_view_all_tasks(site_name):
+    def org_view_all_tasks(site_name, user_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(site_name) is None:
             return jsonify({"message": "Organization not found"}), 404
         task = TaskRepository.find_all_by_site_name(site_name)
@@ -39,6 +46,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_edit_task(data, site_name, task_id, user_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(site_name) is None:
             return jsonify({"message": "Organization not found"}), 404
         if "title" not in data and "description" not in data:
@@ -51,7 +60,9 @@ class OrganizationTaskService:
         return jsonify({"message": "Task updated", "task": task}), 200
 
     @staticmethod
-    def org_delete_task(site_name, task_id):
+    def org_delete_task(site_name,user_id,task_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(site_name) is None:
             return jsonify({"message": "Organization not found"}), 404
         task = TaskRepository.find_by_id_and_site_name(task_id, site_name)
@@ -62,6 +73,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_update_task_status(status_str, site_name, task_id, user_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
         try:
             TaskStatusEnum[status_str]
         except KeyError:
@@ -73,5 +86,6 @@ class OrganizationTaskService:
             return jsonify({"message": "Task not found"}), 404
         task["status"] = status_str
         task["date_updated"] = datetime.now()
+        task["updated_by"] = user_id
         TaskRepository.update(task)
         return jsonify({"message": "Task updated", "task": task}), 200
