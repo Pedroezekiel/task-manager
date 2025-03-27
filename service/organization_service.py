@@ -4,6 +4,7 @@ from flask import jsonify
 
 from models.organization import Organization
 from repositories.organization_repository import OrganizationRepository
+from repositories.task_repository import TaskRepository
 
 
 class OrganizationService:
@@ -48,4 +49,5 @@ class OrganizationService:
         if organization is None:
             return jsonify({"message": "Organization not found"}), 404
         OrganizationRepository.delete(org_id)
+        TaskRepository.delete_all_by_site_name(organization["site_name"])
         return jsonify({"message": "Organization deleted"}), 200

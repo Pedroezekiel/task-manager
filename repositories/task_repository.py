@@ -46,3 +46,9 @@ class TaskRepository:
         if tasks is None:
             return None
         return [TaskSerializer.deserialize(task) for task in tasks]
+
+    @staticmethod
+    def delete_all_by_site_name(site_name):
+        result = mongo.db.tasks.delete_many({"site_name": site_name})
+        print(f"Deleted {result.deleted_count} documents.")
+
