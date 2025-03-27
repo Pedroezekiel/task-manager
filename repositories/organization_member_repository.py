@@ -17,3 +17,9 @@ class OrganizationMemberRepository:
         if organization_member:
             return OrganizationMemberSerializer.deserialize(organization_member)
         else: return None
+
+    @staticmethod
+    def find_all_by_site_name(site_name):
+        organization_members = mongo.db.organization_members.find({"site_name": site_name})
+        return [OrganizationMemberSerializer.deserialize(organization_member)
+                for organization_member in organization_members]
