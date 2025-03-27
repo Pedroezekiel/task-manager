@@ -44,7 +44,7 @@ class OrganizationController:
 
     @staticmethod
     @jwt_required()
-    def organization_view_task(site_name, task_id):
+    def organization_view_task(task_id,site_name):
         return OrganizationTaskService.org_view_tasks(site_name,task_id)
 
     @staticmethod
