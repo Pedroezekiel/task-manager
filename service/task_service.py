@@ -13,7 +13,7 @@ class TaskService:
     def create_task(data, user_id):
         task = Task(title=data["title"],description=data["description"], user_id=user_id)
         saved_task = TaskRepository.save(task)
-        print("")
+        print("----")
         return jsonify({"message":"Task created","task": saved_task}), 201
 
     @staticmethod
