@@ -1,6 +1,7 @@
 from flask import Blueprint
 
 from controllers.organization_controller import OrganizationController
+from controllers.organization_member_controller import OrganizationMemberController
 
 
 class OrganizationRoutes(Blueprint):
@@ -20,5 +21,7 @@ class OrganizationRoutes(Blueprint):
         self.add_url_rule("/tasks/<task_id>/<site_name>", view_func=OrganizationController.organization_view_task, methods=["GET"])
         self.add_url_rule("/tasks/<site_name>", view_func=OrganizationController.organization_view_all_tasks, methods=["GET"])
         self.add_url_rule("/tasks/<task_id>/<site_name>", view_func=OrganizationController.organization_delete_task, methods=["DELETE"])
-
+        self.add_url_rule("/member/", view_func=OrganizationMemberController.add_organization_member, methods=["POST"])
+        self.add_url_rule("/member/<site_name>", view_func=OrganizationMemberController.member_join_organization, methods=["POST"])
+        self.add_url_rule("/member/<site_name>", view_func=OrganizationMemberController.view_all_organization_members, methods=["GET"])
 organization_routes = OrganizationRoutes()
