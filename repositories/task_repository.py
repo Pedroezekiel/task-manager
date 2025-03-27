@@ -25,11 +25,24 @@ class TaskRepository:
     @staticmethod
     def find_all(user_id):
         tasks = mongo.db.tasks.find({"user_id":user_id})
-        return [TaskSerializer.deserialize(task) for task in tasks]
+        if tasks is None:
+            return None
+        else: return [TaskSerializer.deserialize(task) for task in tasks]
 
     @staticmethod
     def delete_by_id(task_id):
         mongo.db.tasks.delete_one({"_id": task_id})
 
+    @staticmethod
+    def find_by_id_and_site_name(task_id, site_name):
+        task = mongo.db.tasks.find_one({"_id": task_id, "site_name": site_name})
+        if task is not None:
+            return TaskSerializer.deserialize(task)
+        else: return None
 
-
+    @staticmethod
+    def find_all_by_site_name(site_name):
+        tasks = mongo.db.tasks.find({"site_name": site_name})
+        if tasks is None:
+            return None
+        return [TaskSerializer.deserialize(task) for task in tasks]
