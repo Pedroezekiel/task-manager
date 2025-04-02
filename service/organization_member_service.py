@@ -9,19 +9,20 @@ class OrganizationMemberService:
 
     @staticmethod
     def add_member_to_organization(data, user_id):
-        organization = OrganizationMemberRepository.find_by_site_name_and_user_id(data["siteName"], user_id)
+        user = UserRepository.find_by_id(user_id)
+        organization = OrganizationMemberRepository.find_by_site_name_and_user_email(data["siteName"], user["email"])
         if organization is None:
             return jsonify({"error":"User is not authorized"}), 401
         user = UserRepository.find_by_email(data["email"])
         if user is None:
             return jsonify({"error":"User is not found"}), 401
-        org_member = OrganizationMember(user_id=user["id"], org_id=organization["id"], site_name=organization["siteName"])
+        org_member = OrganizationMember(user_id=user.get_id(), org_id=organization["id"], site_name=organization["siteName"])
         if data["role"] in data:
             try:
                 MemberRoleEnum[data["role"]]
             except KeyError:
                 return jsonify({"message": "Invalid status value"}), 400
-            org_member.role = data["role"]
+            org_member.role = MemberRoleEnum[data["role"]]
         saved_org = OrganizationMemberRepository.save(org_member)
         return jsonify(saved_org), 200
 
