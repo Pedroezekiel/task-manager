@@ -1,3 +1,4 @@
+from models import task
 from models.task import Task
 from extensions.database import mongo_tasks as mongo
 from serializers.task_serializer import TaskSerializer
@@ -25,6 +26,13 @@ class TaskRepository:
     @staticmethod
     def find_all(user_id):
         tasks = mongo.db.tasks.find({"user_id":user_id})
+        if tasks is None:
+            return None
+        else: return [TaskSerializer.deserialize(task) for task in tasks]
+
+    @staticmethod
+    def find_all_by_status(user_id, status):
+        tasks = mongo.db.tasks.find({"user_id": user_id, "status": status})
         if tasks is None:
             return None
         else: return [TaskSerializer.deserialize(task) for task in tasks]
