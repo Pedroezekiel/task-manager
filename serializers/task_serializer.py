@@ -28,6 +28,6 @@ class TaskSerializer:
             "data_created": DateTimeUtils.convert_datetime(data.get("created_at")),
             "date_updated": DateTimeUtils.convert_datetime(data.get("date_updated")),
             "updated_by": data["updated_by"],
-            "site_name": data["site_name"],
+            "site_name": data["site_name"] if "site_name" in data else None,
             "created_by": data["user_id"],
         }
