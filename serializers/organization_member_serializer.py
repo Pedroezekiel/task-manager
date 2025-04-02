@@ -7,12 +7,12 @@ class OrganizationMemberSerializer:
     @staticmethod
     def serialize(organization_member):
         user = UserRepository.find_by_id(organization_member.user_id)
-        organization_name = OrganizationRepository.find_org_name_by_id(organization_member.organization_id)
+        organization_name = OrganizationRepository.find_org_name_by_site_name(organization_member.site_name)
         return {
             "id": organization_member.get_id(),
             "userName": user["name"],
             "userEmail": user["email"],
-            "role": organization_member.role,
+            "role": organization_member.role.value,
             "dateJoined": DateTimeUtils.convert_datetime(organization_member.date_joined),
             "siteName": organization_member.site_name,
             "organizationName": organization_name
