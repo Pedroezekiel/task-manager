@@ -74,3 +74,14 @@ class TaskService:
         task["date_updated"] = datetime.now()
         TaskRepository.update(task)
         return jsonify({"message":"Task status updated"}), 200
+
+    @staticmethod
+    def filter_task_status(status_str, user_id):
+        try:
+            TaskStatusEnum[status_str]
+        except KeyError:
+            return jsonify({"message": "Invalid status value"}), 400
+        tasks = TaskRepository.find_all_by_status(user_id, status_str)
+        if tasks is None:
+            return jsonify({"message":"No tasks found"}), 404
+        return jsonify({"tasks":tasks}), 200
