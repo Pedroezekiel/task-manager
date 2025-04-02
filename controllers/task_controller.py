@@ -46,7 +46,7 @@ class TaskController:
     @jwt_required()
     def view_all_tasks_by_status(status):
         user_id = get_jwt_identity()
-        return TaskService.filter_task_status(status, user_id)
+        return TaskService.filter_task_by_status(status, user_id)
 
 
 
