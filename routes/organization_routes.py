@@ -25,5 +25,6 @@ class OrganizationRoutes(Blueprint):
         self.add_url_rule("/member/<site_name>", view_func=OrganizationMemberController.member_join_organization, methods=["POST"])
         self.add_url_rule("/member/<site_name>", view_func=OrganizationMemberController.view_all_organization_members, methods=["GET"])
         self.add_url_rule("/<status_str>/<site_name>/<task_id>", view_func=OrganizationController.organization_update_task_status, methods=["PUT"])
+        self.add_url_rule("<site_name>/<task_id>/<member_id>", view_func=OrganizationController.organization_assign_task, methods=["PATCH"])
 
 organization_routes = OrganizationRoutes()
