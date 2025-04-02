@@ -68,3 +68,16 @@ class OrganizationController:
     def organization_delete_task(site_name, task_id):
         user_id = get_jwt_identity()
         return OrganizationTaskService.org_delete_task(site_name, user_id, task_id)
+
+    @staticmethod
+    @jwt_required()
+    def organization_update_task_status(status_str, site_name, task_id):
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_update_task_status(status_str, site_name, task_id, user_id)
+
+    @staticmethod
+    @jwt_required()
+    def organization_assign_task(site_name, task_id, member_id):
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.org_assign_task(site_name, task_id, user_id, member_id)
+
