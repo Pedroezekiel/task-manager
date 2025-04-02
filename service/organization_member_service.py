@@ -1,7 +1,6 @@
 from flask import jsonify
 
 from enums.member_role_status import MemberRoleEnum
-from enums.task_status import TaskStatusEnum
 from models.organization_member import OrganizationMember
 from repositories.organization_member_repository import OrganizationMemberRepository
 from repositories.user_repository import UserRepository
