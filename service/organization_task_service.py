@@ -89,3 +89,20 @@ class OrganizationTaskService:
         task["updated_by"] = user_id
         TaskRepository.update(task)
         return jsonify({"message": "Task updated", "task": task}), 200
+
+    @staticmethod
+    def org_assign_task(site_name, task_id, user_id, member_id):
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, member_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
+        if OrganizationRepository.find_by_site_name(site_name) is None:
+            return jsonify({"message": "Organization not found"}), 404
+        task = TaskRepository.find_by_id_and_site_name(task_id, site_name)
+        if task is None:
+            return jsonify({"message": "Task not found"}), 404
+        task["user_id"] = member_id
+        task["date_updated"] = datetime.now()
+        task["updated_by"] = user_id
+        TaskRepository.update(task)
+        return jsonify({"message": "Task updated", "task": task}), 200
