@@ -49,3 +49,10 @@ class OrganizationRepository:
         if organizations is None:
             return None
         else: return organizations["name"]
+
+    @staticmethod
+    def find_org_name_by_site_name(site_name):
+        organizations = mongo.db.organizations.find_one({"site_name": site_name})
+        if organizations is None:
+            return None
+        else: return organizations["name"]
