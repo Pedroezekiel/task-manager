@@ -18,8 +18,8 @@ class OrganizationService:
                                     created_by=user_id, site_name=data["site_name"])
         if OrganizationRepository.find_by_site_name(organization.site_name) is None:
             saved_organization = OrganizationRepository.save(organization)
-            org_member = OrganizationMember(user_id=user_id, org_id=saved_organization.org_id,
-                                            site_name=saved_organization.site_name, role=MemberRoleEnum.ADMIN)
+            org_member = OrganizationMember(user_id=user_id, org_id=saved_organization["id"],
+                                            site_name=saved_organization["site_name"], role=MemberRoleEnum.ADMIN)
             OrganizationMemberRepository.save(org_member)
             return jsonify({"message": "Organization created", "organization": saved_organization}), 201
         else: return jsonify({"message": "Organization already exists"}), 400
