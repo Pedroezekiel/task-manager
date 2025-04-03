@@ -2,6 +2,9 @@ from flask import request
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from service.organization_member_service import OrganizationMemberService
+from service.organization_service import OrganizationService
+from service.organization_task_service import OrganizationTaskService
+
 
 class OrganizationMemberController:
 
@@ -23,3 +26,9 @@ class OrganizationMemberController:
     def view_all_organization_members(site_name):
         user_id = get_jwt_identity()
         return OrganizationMemberService.view_organization_members(user_id, site_name)
+
+    @staticmethod
+    @jwt_required()
+    def member_view_tasks(site_name):
+        user_id = get_jwt_identity()
+        return OrganizationTaskService.view_member_tasks(site_name, user_id)
