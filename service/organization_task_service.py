@@ -94,10 +94,11 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_assign_task(site_name, task_id, user_id, member_id):
-        user = UserRepository.find_by_email(user_id)
-        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user.email) is None:
+        user = UserRepository.find_by_id(user_id)
+        member = UserRepository.find_by_id(member_id)
+        if OrganizationMemberRepository.find_by_site_name_and_user_email(site_name, user["email"]) is None:
             return jsonify({"message": "User is not in this organization"}), 401
-        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, member_id) is None:
+        if OrganizationMemberRepository.find_by_site_name_and_user_email(site_name, member["email"]) is None:
             return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(site_name) is None:
             return jsonify({"message": "Organization not found"}), 404
@@ -112,8 +113,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def view_member_tasks(site_name, user_id):
-        user = UserRepository.find_by_email(user_id)
-        if OrganizationMemberRepository.find_by_site_name_and_user_email(site_name, user.email) is None:
+        user = UserRepository.find_by_id(user_id)
+        if OrganizationMemberRepository.find_by_site_name_and_user_email(site_name, user["email"]) is None:
             return jsonify({"message": "User is not in this organization"}), 401
         tasks = TaskRepository.find_all_by_site_name_and_user_id(site_name, user_id)
         if tasks is None:
