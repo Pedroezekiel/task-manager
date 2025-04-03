@@ -7,6 +7,7 @@ from models.task import Task
 from repositories.organization_member_repository import OrganizationMemberRepository
 from repositories.organization_repository import OrganizationRepository
 from repositories.task_repository import TaskRepository
+from repositories.user_repository import UserRepository
 from service.task_service import TaskService
 
 
@@ -14,7 +15,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_create_task(data, user_id):
-        if OrganizationMemberRepository.find_by_site_name_and_user_id(data["site_name"], user_id) is None:
+        user = UserRepository.find_by_id(user_id)
+        if OrganizationMemberRepository.find_by_site_name_and_user_email(data["site_name"], user["email"]) is None:
             return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationRepository.find_by_site_name(data["site_name"]) is None:
             return jsonify({"message": "Organization not found"}), 404
@@ -92,7 +94,8 @@ class OrganizationTaskService:
 
     @staticmethod
     def org_assign_task(site_name, task_id, user_id, member_id):
-        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+        user = UserRepository.find_by_email(user_id)
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user.email) is None:
             return jsonify({"message": "User is not in this organization"}), 401
         if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, member_id) is None:
             return jsonify({"message": "User is not in this organization"}), 401

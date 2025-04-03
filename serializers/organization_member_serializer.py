@@ -10,22 +10,22 @@ class OrganizationMemberSerializer:
         organization_name = OrganizationRepository.find_org_name_by_site_name(organization_member.site_name)
         return {
             "id": organization_member.get_id(),
-            "userName": user["name"],
-            "userEmail": user["email"],
+            "user_name": user["name"],
+            "user_email": user["email"],
             "role": organization_member.role.value,
-            "dateJoined": DateTimeUtils.convert_datetime(organization_member.date_joined),
-            "siteName": organization_member.site_name,
-            "organizationName": organization_name
+            "date_joined": DateTimeUtils.convert_datetime(organization_member.date_joined),
+            "site_name": organization_member.site_name,
+            "organization_name": organization_name
         }
 
     @staticmethod
     def deserialize(serialized_data):
         return {
             "id": serialized_data["id"],
-            "userName": serialized_data["userName"],
-            "userEmail": serialized_data["userEmail"],
+            "user_name": serialized_data["user_name"],
+            "user_email": serialized_data["user_email"],
             "role": serialized_data["role"],
-            "dateJoined": DateTimeUtils.convert_datetime(serialized_data["dateJoined"]),
-            "siteName": serialized_data["siteName"],
-            "organizationName": serialized_data["organizationName"]
+            "date_joined": DateTimeUtils.convert_datetime(serialized_data["date_joined"]),
+            "site_name": serialized_data["site_name"],
+            "organization_name": serialized_data["organization_name"]
         }
