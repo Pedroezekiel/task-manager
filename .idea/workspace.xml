@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b98b401-bf9b-4b24-9a76-5f1cce9c7ba1" name="Changes" comment="added org">
+    <list default="true" id="9b98b401-bf9b-4b24-9a76-5f1cce9c7ba1" name="Changes" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9cdb7708-2a8f-4973-b742-d97ac2dae256.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/organization_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/organization_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serializers/organization_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/serializers/organization_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/user_repository.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +34,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -44,7 +50,17 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Pedroezekiel/task-manager.git&quot;,
-    &quot;accountId&quot;: &quot;3a1c9c11-f035-4971-8fa2-515485523c56&quot;
+    &quot;accountId&quot;: &quot;0d4c1cc3-bf25-420a-95c0-a7d5e8ce7a88&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;Pedroezekiel&quot;,
+    &quot;repository&quot;: &quot;task-manager&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -56,26 +72,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.app.executor": "Run",
+    "Python.config.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#15 on master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ezeki\PythonProject\flask_task_manager_api\utils" />
@@ -112,6 +129,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
   </component>
@@ -140,213 +158,449 @@
       <workItem from="1742831119571" duration="803000" />
       <workItem from="1742891174772" duration="24662000" />
       <workItem from="1742977357400" duration="21318000" />
-      <workItem from="1743063584751" duration="3997000" />
+      <workItem from="1743063584751" duration="22876000" />
+      <workItem from="1743582294501" duration="36301000" />
+      <workItem from="1744189243385" duration="362000" />
     </task>
-    <task id="LOCAL-00001" summary="creating a flask project using oop">
+    <task id="LOCAL-00045" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1741616120666</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1743087917850</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1741616120667</updated>
+      <updated>1743087917850</updated>
     </task>
-    <task id="LOCAL-00002" summary="creating a flask project using oop">
+    <task id="LOCAL-00046" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1741688668545</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1743087982793</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1741688668545</updated>
+      <updated>1743087982793</updated>
     </task>
-    <task id="LOCAL-00003" summary="update flask model">
+    <task id="LOCAL-00047" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742893318334</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+      <created>1743088033493</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
-      <updated>1742893318334</updated>
+      <updated>1743088033493</updated>
     </task>
-    <task id="LOCAL-00004" summary="update task controller">
+    <task id="LOCAL-00048" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742897135264</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+      <created>1743088118653</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1742897135264</updated>
+      <updated>1743088118653</updated>
     </task>
-    <task id="LOCAL-00005" summary="update controller">
+    <task id="LOCAL-00049" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898069149</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+      <created>1743088175895</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1742898069149</updated>
+      <updated>1743088175895</updated>
     </task>
-    <task id="LOCAL-00006" summary="update repo">
+    <task id="LOCAL-00050" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898309743</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+      <created>1743088284784</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
       <option name="project" value="LOCAL" />
-      <updated>1742898309743</updated>
+      <updated>1743088284785</updated>
     </task>
-    <task id="LOCAL-00007" summary="update routes">
+    <task id="LOCAL-00051" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898341256</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+      <created>1743090354992</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1742898341256</updated>
+      <updated>1743090354992</updated>
     </task>
-    <task id="LOCAL-00008" summary="update routes">
+    <task id="LOCAL-00052" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898366498</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+      <created>1743090394829</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
       <option name="project" value="LOCAL" />
-      <updated>1742898366498</updated>
+      <updated>1743090394829</updated>
     </task>
-    <task id="LOCAL-00009" summary="update service">
+    <task id="LOCAL-00053" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898422932</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+      <created>1743090454001</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
       <option name="project" value="LOCAL" />
-      <updated>1742898422932</updated>
+      <updated>1743090454001</updated>
     </task>
-    <task id="LOCAL-00010" summary="update service">
+    <task id="LOCAL-00054" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742898530646</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+      <created>1743090539385</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
       <option name="project" value="LOCAL" />
-      <updated>1742898530646</updated>
+      <updated>1743090539385</updated>
     </task>
-    <task id="LOCAL-00011" summary="update service">
+    <task id="LOCAL-00055" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742900081846</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+      <created>1743090598655</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1742900081846</updated>
+      <updated>1743090598655</updated>
     </task>
-    <task id="LOCAL-00012" summary="added user">
+    <task id="LOCAL-00056" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742906471319</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+      <created>1743090647172</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1742906471319</updated>
+      <updated>1743090647172</updated>
     </task>
-    <task id="LOCAL-00013" summary="added auth">
+    <task id="LOCAL-00057" summary="added organization member">
       <option name="closed" value="true" />
-      <created>1742906678064</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+      <created>1743090734392</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1742906678064</updated>
+      <updated>1743090734392</updated>
     </task>
-    <task id="LOCAL-00014" summary="added auth">
+    <task id="LOCAL-00058" summary="added org assign task method">
       <option name="closed" value="true" />
-      <created>1742917255301</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+      <created>1743584477918</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1742917255301</updated>
+      <updated>1743584477918</updated>
     </task>
-    <task id="LOCAL-00015" summary="added auth">
+    <task id="LOCAL-00059" summary="added org update task status controller">
       <option name="closed" value="true" />
-      <created>1742919298768</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+      <created>1743584620036</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1742919298768</updated>
+      <updated>1743584620036</updated>
     </task>
-    <task id="LOCAL-00016" summary="added auth">
+    <task id="LOCAL-00060" summary="added org assign task controller">
       <option name="closed" value="true" />
-      <created>1742979691745</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+      <created>1743584966798</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1742979691745</updated>
+      <updated>1743584966798</updated>
     </task>
-    <task id="LOCAL-00017" summary="added auth">
+    <task id="LOCAL-00061" summary="added org update task status to organization_routes.py">
       <option name="closed" value="true" />
-      <created>1742979737554</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+      <created>1743585302608</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
       <option name="project" value="LOCAL" />
-      <updated>1742979737554</updated>
+      <updated>1743585302610</updated>
     </task>
-    <task id="LOCAL-00018" summary="added auth">
+    <task id="LOCAL-00062" summary="added org assign task to organization_routes.py">
       <option name="closed" value="true" />
-      <created>1742979780582</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+      <created>1743585958375</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
-      <updated>1742979780582</updated>
+      <updated>1743585958376</updated>
     </task>
-    <task id="LOCAL-00019" summary="added auth">
+    <task id="LOCAL-00063" summary="remove unused import statement in organization_member_serializer.py">
       <option name="closed" value="true" />
-      <created>1742979811687</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+      <created>1743586302603</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
-      <updated>1742979811687</updated>
+      <updated>1743586302603</updated>
     </task>
-    <task id="LOCAL-00020" summary="added org">
+    <task id="LOCAL-00064" summary="added view_all_tasks_by_status to controller">
       <option name="closed" value="true" />
-      <created>1742993640135</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+      <created>1743588924665</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1742993640135</updated>
+      <updated>1743588924665</updated>
     </task>
-    <task id="LOCAL-00021" summary="added org">
+    <task id="LOCAL-00065" summary="added view_all_tasks_by_status to repo">
       <option name="closed" value="true" />
-      <created>1742993705323</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+      <created>1743588952193</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
-      <updated>1742993705323</updated>
+      <updated>1743588952193</updated>
     </task>
-    <task id="LOCAL-00022" summary="added org">
+    <task id="LOCAL-00066" summary="added view_all_tasks_by_status to routes">
       <option name="closed" value="true" />
-      <created>1742993753945</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+      <created>1743588995698</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
-      <updated>1742993753945</updated>
+      <updated>1743588995698</updated>
     </task>
-    <task id="LOCAL-00023" summary="added org">
+    <task id="LOCAL-00067" summary="added view_all_tasks_by_status to service">
       <option name="closed" value="true" />
-      <created>1742998605150</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+      <created>1743589043526</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
-      <updated>1742998605150</updated>
+      <updated>1743589043526</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00068" summary="added view_all_tasks_by_status to service">
+      <option name="closed" value="true" />
+      <created>1743589077112</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1743589077112</updated>
+    </task>
+    <task id="LOCAL-00069" summary="update view_all_tasks_by_status task_controller.py">
+      <option name="closed" value="true" />
+      <created>1743591348437</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1743591348437</updated>
+    </task>
+    <task id="LOCAL-00070" summary="added view_all_tasks_by_status task_routes.py">
+      <option name="closed" value="true" />
+      <created>1743591496196</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1743591496196</updated>
+    </task>
+    <task id="LOCAL-00071" summary="updated taskSerializer">
+      <option name="closed" value="true" />
+      <created>1743591562499</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1743591562499</updated>
+    </task>
+    <task id="LOCAL-00072" summary="updated task_service.py">
+      <option name="closed" value="true" />
+      <created>1743591600589</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1743591600589</updated>
+    </task>
+    <task id="LOCAL-00073" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743592052169</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1743592052169</updated>
+    </task>
+    <task id="LOCAL-00074" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743595047030</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1743595047030</updated>
+    </task>
+    <task id="LOCAL-00075" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743595092886</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1743595092886</updated>
+    </task>
+    <task id="LOCAL-00076" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743595149930</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1743595149930</updated>
+    </task>
+    <task id="LOCAL-00077" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743595198046</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1743595198046</updated>
+    </task>
+    <task id="LOCAL-00078" summary="removed unused import statement">
+      <option name="closed" value="true" />
+      <created>1743595308810</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1743595308810</updated>
+    </task>
+    <task id="LOCAL-00079" summary="update">
+      <option name="closed" value="true" />
+      <created>1743610177519</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1743610177519</updated>
+    </task>
+    <task id="LOCAL-00080" summary="update">
+      <option name="closed" value="true" />
+      <created>1743610221309</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1743610221310</updated>
+    </task>
+    <task id="LOCAL-00081" summary="update">
+      <option name="closed" value="true" />
+      <created>1743610319202</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1743610319202</updated>
+    </task>
+    <task id="LOCAL-00082" summary="update">
+      <option name="closed" value="true" />
+      <created>1743610347481</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1743610347481</updated>
+    </task>
+    <task id="LOCAL-00083" summary="update">
+      <option name="closed" value="true" />
+      <created>1743681054757</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1743681054758</updated>
+    </task>
+    <task id="LOCAL-00084" summary="update">
+      <option name="closed" value="true" />
+      <created>1743681109029</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1743681109029</updated>
+    </task>
+    <task id="LOCAL-00085" summary="update">
+      <option name="closed" value="true" />
+      <created>1743681170068</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1743681170068</updated>
+    </task>
+    <task id="LOCAL-00086" summary="update">
+      <option name="closed" value="true" />
+      <created>1743681260361</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1743681260361</updated>
+    </task>
+    <task id="LOCAL-00087" summary="update">
+      <option name="closed" value="true" />
+      <created>1743689173911</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1743689173911</updated>
+    </task>
+    <task id="LOCAL-00088" summary="update">
+      <option name="closed" value="true" />
+      <created>1743689258775</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1743689258775</updated>
+    </task>
+    <task id="LOCAL-00089" summary="update">
+      <option name="closed" value="true" />
+      <created>1743689365629</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1743689365630</updated>
+    </task>
+    <task id="LOCAL-00090" summary="update">
+      <option name="closed" value="true" />
+      <created>1744189447734</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189447735</updated>
+    </task>
+    <task id="LOCAL-00091" summary="update">
+      <option name="closed" value="true" />
+      <created>1744189497781</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189497781</updated>
+    </task>
+    <task id="LOCAL-00092" summary="update">
+      <option name="closed" value="true" />
+      <created>1744189556963</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189556963</updated>
+    </task>
+    <task id="LOCAL-00093" summary="update">
+      <option name="closed" value="true" />
+      <created>1744189606276</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189606277</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creating a flask project using oop" />
-    <MESSAGE value="update flask model" />
-    <MESSAGE value="update task controller" />
-    <MESSAGE value="update controller" />
     <MESSAGE value="update repo" />
     <MESSAGE value="update routes" />
     <MESSAGE value="update service" />
     <MESSAGE value="added user" />
     <MESSAGE value="added auth" />
     <MESSAGE value="added org" />
-    <option name="LAST_COMMIT_MESSAGE" value="added org" />
+    <MESSAGE value="testing" />
+    <MESSAGE value="added organization task service" />
+    <MESSAGE value="added organization member" />
+    <MESSAGE value="added org assign task method" />
+    <MESSAGE value="added org update task status controller" />
+    <MESSAGE value="added org assign task controller" />
+    <MESSAGE value="added org update task status to organization_routes.py" />
+    <MESSAGE value="added org assign task to organization_routes.py" />
+    <MESSAGE value="remove unused import statement in organization_member_serializer.py" />
+    <MESSAGE value="added view_all_tasks_by_status to controller" />
+    <MESSAGE value="added view_all_tasks_by_status to repo" />
+    <MESSAGE value="added view_all_tasks_by_status to routes" />
+    <MESSAGE value="added view_all_tasks_by_status to service" />
+    <MESSAGE value="update view_all_tasks_by_status task_controller.py" />
+    <MESSAGE value="added view_all_tasks_by_status task_routes.py" />
+    <MESSAGE value="updated taskSerializer" />
+    <MESSAGE value="updated task_service.py" />
+    <MESSAGE value="removed unused import statement" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1743067677905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_task_manager_api$app.coverage" NAME="app Coverage Results" MODIFIED="1743688680736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_task_manager_api$config.coverage" NAME="config Coverage Results" MODIFIED="1741598271048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
