@@ -1,4 +1,4 @@
-from extensions.database import mongo_users as mongo
+from extensions.database import mongo_tasks as mongo
 from models.user import User
 from serializers.user_serializer import UserSerializer
 

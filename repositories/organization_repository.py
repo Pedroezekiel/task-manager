@@ -1,6 +1,6 @@
 from models.organization import Organization
 from serializers.organization_serializer import OrganizationSerializer
-from extensions.database import mongo_organizations as mongo
+from extensions.database import mongo_tasks as mongo
 
 class OrganizationRepository:
 

@@ -9,7 +9,9 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="org_db" />
+            <name qname="org_member_db" />
             <name qname="task_db" />
+            <name qname="user_db" />
           </node>
         </introspection-scope>
       </schema-mapping>
