@@ -1,5 +1,5 @@
 from repositories.organization_repository import OrganizationRepository
-from extensions.database import mongo_organization_members as mongo
+from extensions.database import mongo_tasks as mongo
 from serializers.organization_member_serializer import OrganizationMemberSerializer
 
 
