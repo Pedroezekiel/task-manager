@@ -25,6 +25,16 @@ class OrganizationTaskService:
         return jsonify({"message":"Task created","task": saved_task}), 201
 
     @staticmethod
+    def search_org_tasks(site_name, user_id, query):
+        # Only allow members to search
+        if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
+            return jsonify({"message": "User is not in this organization"}), 401
+        if OrganizationRepository.find_by_site_name(site_name) is None:
+            return jsonify({"message": "Organization not found"}), 404
+        tasks = TaskRepository.search_org_tasks(site_name, query)
+        return jsonify({"tasks": tasks}), 200
+
+    @staticmethod
     def org_view_tasks(site_name, user_id, task_id):
         if OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, user_id) is None:
             return jsonify({"message": "User is not in this organization"}), 401

@@ -9,8 +9,17 @@ class OrganizationRepository:
         serialized_organization = OrganizationSerializer.serialize(organization)
         organization = mongo.db.organizations.insert_one(serialized_organization)
         inserted_organization = mongo.db.organizations.find_one({"_id": organization.inserted_id})
-
         return OrganizationSerializer.deserialize(inserted_organization)
+
+    @staticmethod
+    def list_all():
+        organizations = mongo.db.organizations.find()
+        return [OrganizationSerializer.deserialize(org) for org in organizations]
+
+    @staticmethod
+    def search_by_name(query):
+        organizations = mongo.db.organizations.find({"name": {"$regex": query, "$options": "i"}})
+        return [OrganizationSerializer.deserialize(org) for org in organizations]
 
     @staticmethod
     def find_by_site_name(site_name):

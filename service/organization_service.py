@@ -25,6 +25,16 @@ class OrganizationService:
         else: return jsonify({"message": "Organization already exists"}), 400
 
     @staticmethod
+    def list_organizations():
+        orgs = OrganizationRepository.list_all()
+        return jsonify({"organizations": orgs}), 200
+
+    @staticmethod
+    def search_organizations(query):
+        orgs = OrganizationRepository.search_by_name(query)
+        return jsonify({"organizations": orgs}), 200
+
+    @staticmethod
     def edit_organization(organization_id, data, user_id):
         print(organization_id)
         print(data["site_name"])

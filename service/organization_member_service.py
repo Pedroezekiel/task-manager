@@ -43,3 +43,41 @@ class OrganizationMemberService:
             return jsonify({"error":"User is not in this organization"}), 401
         organizations = OrganizationMemberRepository.find_all_by_site_name(site_name)
         return jsonify({"organizations": organizations}), 200
+
+    @staticmethod
+    def remove_member_from_organization(site_name, member_id, requester_id):
+        # Only allow admins to remove members
+        requester = OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, requester_id)
+        if requester is None or requester.role != MemberRoleEnum.ADMIN:
+            return jsonify({"error": "Only admins can remove members"}), 403
+        mongo = __import__('extensions.database', fromlist=['mongo_tasks']).mongo_tasks
+        result = mongo.db.organization_members.delete_one({"site_name": site_name, "user_id": member_id})
+        if result.deleted_count == 0:
+            return jsonify({"error": "Member not found in organization"}), 404
+        return jsonify({"message": "Member removed from organization"}), 200
+
+    @staticmethod
+    def update_member_role(site_name, member_id, new_role, requester_id):
+        # Only allow admins to update roles
+        requester = OrganizationMemberRepository.find_by_site_name_and_user_id(site_name, requester_id)
+        if requester is None or requester.role != MemberRoleEnum.ADMIN:
+            return jsonify({"error": "Only admins can update member roles"}), 403
+        try:
+            MemberRoleEnum[new_role]
+        except KeyError:
+            return jsonify({"message": "Invalid role value"}), 400
+        mongo = __import__('extensions.database', fromlist=['mongo_tasks']).mongo_tasks
+        result = mongo.db.organization_members.update_one(
+            {"site_name": site_name, "user_id": member_id},
+            {"$set": {"role": new_role}}
+        )
+        if result.matched_count == 0:
+            return jsonify({"error": "Member not found in organization"}), 404
+        return jsonify({"message": "Member role updated"}), 200
+
+    @staticmethod
+    def list_user_organizations(user_id):
+        mongo = __import__('extensions.database', fromlist=['mongo_tasks']).mongo_tasks
+        org_memberships = mongo.db.organization_members.find({"user_id": user_id})
+        orgs = [org["site_name"] for org in org_memberships]
+        return jsonify({"organizations": orgs}), 200
