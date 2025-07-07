@@ -13,6 +13,28 @@ class TaskRepository:
         return serialized_task
 
     @staticmethod
+    def search_tasks(user_id, query):
+        tasks = mongo.db.tasks.find({
+            "user_id": user_id,
+            "$or": [
+                {"title": {"$regex": query, "$options": "i"}},
+                {"description": {"$regex": query, "$options": "i"}}
+            ]
+        })
+        return [TaskSerializer.deserialize(task) for task in tasks]
+
+    @staticmethod
+    def search_org_tasks(site_name, query):
+        tasks = mongo.db.tasks.find({
+            "site_name": site_name,
+            "$or": [
+                {"title": {"$regex": query, "$options": "i"}},
+                {"description": {"$regex": query, "$options": "i"}}
+            ]
+        })
+        return [TaskSerializer.deserialize(task) for task in tasks]
+
+    @staticmethod
     def update(data: dict):
         mongo.db.tasks.update_one({"_id": data["_id"]}, {"$set": data})
 
