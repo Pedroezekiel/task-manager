@@ -16,6 +16,11 @@ class TaskService:
         return jsonify({"message":"Task created","task": saved_task}), 201
 
     @staticmethod
+    def search_tasks(user_id, query):
+        tasks = TaskRepository.search_tasks(user_id, query)
+        return jsonify({"tasks": tasks}), 200
+
+    @staticmethod
     def get_task(task_id, user_id):
         task = TaskRepository.find_by_id(task_id, user_id)
         if task is None:
